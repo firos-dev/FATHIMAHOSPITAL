@@ -1,0 +1,242 @@
+.main-bg {
+  background-color: #5d1313;
+  font-family: "Open Sans", sans-serif;
+}
+.logo {
+  width: 100px;
+}
+.main-menu {
+  font-size: 18px;
+  font-weight: 500;
+  padding-left: 25px !important;
+  padding-right: 25px !important;
+  transition: ease-in-out 0.5s;
+}
+.main-menu:hover {
+  text-shadow: 3px 3px 2px rgba(150, 150, 150, 0.5);
+}
+.no-p-m {
+  padding: 0;
+  margin: 0;
+}
+.banner-caption {
+  padding-top: 80px;
+  font-size: 60px;
+  color: #fff;
+  line-height: 70px;
+}
+.banner-div {
+  position: relative;
+}
+.banner-img {
+  max-height: 500px;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.btn-salmon {
+  margin-top: 50px;
+  background-color: #ffcdb2;
+  color: #5d1313;
+  border-radius: 50px;
+  padding: 8px 40px;
+  transition: ease-in-out 0.5s;
+}
+.treatment {
+  position: relative;
+  padding: 150px 0;
+  background-image: url(../images/treatment-bg.png);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.tmt-captions {
+  position: absolute;
+  width: 250px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #fff;
+  font-size: 30px;
+  border: #ffcdb2 2px solid;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  top: -35px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.tmt-tiles {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  margin-bottom: 30px;
+}
+.tmt-img {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.tmt-text {
+  padding: 15px;
+}
+.tmt-name {
+  padding-top: 25px;
+  color: #fff;
+  font-size: 18px;
+}
+.tmt-disc {
+  padding-top: 10px;
+  font-size: 14px;
+  color: #fff;
+}
+.aboutLogo {
+  margin-bottom: 50px;
+}
+.about {
+  margin: 150px 0;
+}
+.p-about {
+  letter-spacing: 1px;
+}
+.qoutes-div {
+  text-align: center;
+}
+.q-img-top {
+  margin-bottom: 50px;
+}
+.q-img-bottom {
+  margin-top: 50px;
+  transform: rotate(180deg);
+}
+.qoute-p, .myp{
+    color: #fff;
+    letter-spacing: 1px;
+}
+.qoute-img{
+    margin-bottom: 50px;
+}
+.footer{
+    margin-top: 150px;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding-top: 70px;
+    padding-bottom: 50px;
+}
+.footer-logo{
+    max-height: 40px;
+    margin-bottom: 50px;
+}
+.footer-headings{
+    color: #fff;
+    font-size: 24px;
+    padding-bottom: 25px;
+}
+.footer-links{
+    font-size: 17px;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: list-item;
+    list-style: none;
+}
+.footer-links:hover{
+    color: royalblue;
+}
+.myp{
+    margin-bottom: 5px;
+}
+.btn-footer {
+  margin-top: 20px;
+  background-color: #ffcdb2;
+  color: #5d1313;
+  border-radius: 50px;
+  padding: 8px 40px;
+  transition: ease-in-out 0.5s;
+}
+.privacy-footer{
+    background-color: #000;
+    padding: 10px 0;
+    font-size: 12px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+.footer-disc{
+    margin-bottom: 15px;
+}
+.banner-img-bg{
+  background-image: url(../images/banner-bg.jpg);
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.black-shade{
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.page-banner{
+  padding: 65px 0;
+}
+.path-item{
+  color: #fff;
+}
+.path-item.active{
+  color: #FFCDB2;
+}
+.path-item.active:hover{
+  color: #FFCDB2;
+  text-decoration: none;
+  cursor: default;
+}
+.path-item:hover{
+  color: #fff;
+  cursor: pointer;
+}
+.path-sep{
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.d-content{
+  margin: 50px 0;
+}
+.content-div{
+  background-color: #752F2B;
+  box-shadow: 2px 3px 10px -3px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 2px 3px 10px -3px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 3px 10px -3px rgba(0,0,0,0.75);
+  padding: 35px;
+}
+.content-heading{
+  color: #fff;
+  font-size: 22px;
+}
+.content-disc{
+  padding-top: 10px;
+  color: #fff;
+
+}
+.contact {
+  color: #fff;
+  margin-top: 55px;
+}
+.myinput{
+  color: #fff;
+  background-color: #752F2B;
+  border: #FFCDB2 1px solid;
+}
+.myinput:focus{
+  color: #000;
+  background-color: #752F2B;
+  border: #FFCDB2 1px solid;
+  outline: none;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.41);
+}
+.contact-headings{
+    color: #fff;
+    font-size: 24px;
+    padding-bottom: 25px;
+}
+.contact-details p{
+  padding-left: 15px;
+  font-size: 13px;
+}
