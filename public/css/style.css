@@ -240,3 +240,17 @@
   padding-left: 15px;
   font-size: 13px;
 }
+.tile-images{
+  min-height: 210px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.pkg-desc{
+  white-space: pre-line;
+  font-size: 13px;
+  line-height: 25px;
+}
+.pkg-note{
+  font-size: 13px;
+}

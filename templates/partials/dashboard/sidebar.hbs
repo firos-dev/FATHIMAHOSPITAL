@@ -1,0 +1,33 @@
+<div class="col-md-3 col-lg-3 col-xl-2 sidebar" id="sidebarid">
+                <div class="sidebar-header">
+                    <img src="/images/Logo.png" alt="" class="">
+                    
+                    <button type="button" class="btn btn-close" onclick="closeNav()"><img src="/images/icon/close.png" alt=""></button>
+                    
+                </div>
+                <a class="sidemenu" href="/dashboard/treatment">
+                    <div class="sidemenu-link"><img src="/images/icon/med-book.png" alt="med-book" class="img-fluid"><strong>Treatment</strong></div>
+                </a>
+                <a class="sidemenu">
+                    <div class="sidemenu-link"><img src="/images/icon/capsule.png" alt="capsule" class="img-fluid"><strong>Medicines</strong></div>
+                </a>
+                <a class="sidemenu">
+                    <div class="sidemenu-link"><img src="/images/icon/chat.png" alt="chat" class="img-fluid"><strong>Enquiry</strong></div>
+                </a>
+                <a class="sidemenu">
+                    <div class="sidemenu-link"><img src="/images/icon/settings.png" alt="settings" class="img-fluid"><strong>Settings</strong></div>
+                </a>
+                <a class="sidemenu">
+                    <div class="sidemenu-link"><img src="/images/icon/switch.png" alt="switch" class="img-fluid"><strong>Logout</strong></div>
+                </a>
+                
+            </div>
+
+            <script>
+                function openNav() {
+                document.getElementById("sidebarid").style.width = "350px";
+                }
+                function closeNav(){
+                    document.getElementById("sidebarid").style.width = "0";
+                }
+            </script>

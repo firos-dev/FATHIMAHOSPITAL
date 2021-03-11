@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#5D1313">
+    <title>Fathima | Admin</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/dashboard/style.css">
+    <link rel="stylesheet" href="/dashboard/mediaQuery.css">
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="col-md-12">
+        <div class="row">
+            {{>dashboard/sidebar}}
+            <div class="col-md-9 col-lg-9 col-xl-10" id="dash-body">
+                {{>dashboard/header}}
+                <div class="col-md-12 mt-5">
+                    <div class="row">
+                        <div class="heading"><strong>TREATMENT</strong></div>
+                    </div>
+                   <div class="row">
+                       <a href="/view/treatment" class="nav-menu active">View</a>
+                       <a href="/create/treatment" class="nav-menu">Create New</a>
+                    </div>
+                    <hr class="m-0">
+                    <div class="row">
+                        <div class="col-md-6 mt-3">
+                            {{#if msgSuccess}}
+                                <div>
+                                    <div class="alert alert-success" role="alert">
+                                        <strong>Success! </strong>{{msgSuccess}}
+                                    </div>  
+                                </div>
+                            {{/if}}
+                            {{#each treatment as |item|}}
+                            <div class="tmt-div-view d-flex">
+                                <strong>{{item.name}}</strong>
+                                {{!-- <button class="btn btn-primary mr-3 view-btn">View</button> --}}
+                                <a class="btn btn-warning mr-3 edit-btn">Edit</a>
+                                <a class="btn btn-danger dlt-btn">Delete</a>
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

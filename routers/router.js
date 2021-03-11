@@ -1,4 +1,5 @@
 const express = require('express')
+const Treatment = require('../model/treatment')
 
 const router = new express.Router()
 
@@ -6,8 +7,11 @@ const router = new express.Router()
 router.get('/', (req, res)=> {
     res.render('index')
 })
-router.get('/treatment', (req, res) => {
-    res.render('treatment')
+router.get('/treatment', async(req, res) => {
+    const treatment = await Treatment.find()
+    res.render('treatment', {
+        treatment: treatment
+    })
 })
 router.get('/medicines', (req, res) => {
     res.render('medicines')

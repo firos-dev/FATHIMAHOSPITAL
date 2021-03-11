@@ -5,11 +5,16 @@ const treatmentSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    discription: {
+    description: {
         type: String,
         required: true,
         trim: true,
-        
+    },
+    index: {
+        type: Number,
+        unique:true,
+        required: true,
+        trim: true
     },
     pkgName: {
         type: String,
@@ -19,22 +24,25 @@ const treatmentSchema = new mongoose.Schema({
         type: Number,
         trim: true
     },
-    pkgDiscription: {
+    pkgDescription: {
         type: String,
         trim: true  
     },
-    pkgMsg: {
+    pkgNote: {
         type: String,
     },
     image1: {
-        buffer: Boolean
+        type: String,
+        required: true
     },
     image2: {
-        buffer: Boolean
+        type: String,
+        required: true
     },
     image3: {
-        buffer: Boolean
-    }
+        type: String,
+        required: true
+    },
 }, {
     timestamps: true
 })

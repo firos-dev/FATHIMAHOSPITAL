@@ -59,6 +59,21 @@
     border-left: 5px #fff solid;
     text-decoration: none !important;
 }
+.btn-close{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    display: none;
+}
+.btn-close img{
+    height: 20px;
+}
+.inline{
+    display: inline-block !important;
+}
+.menu-btn{
+    height: 30px;
+}
 a:hover{
     text-decoration: none;
 }
@@ -77,6 +92,9 @@ a:hover{
     width: 100%;
     background-color: #ececec;
     padding: 15px;
+}
+.btn-nav-open{
+    display: none;
 }
 .btn-logout{
     background-color: #5D1313;
@@ -107,10 +125,59 @@ button:focus{
 .count-head{
     color: #fff;
 }
-.count{
-    font-size: ;
-}
+
 .count-icon{
     min-height: 100px;
     position: absolute;
+}
+.nav-menu{
+    background-color: #FFF;
+    color: #000;
+    padding: 10px 25px;
+    border: none;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+
+
+}
+.nav-menu.active{
+    background-color: #EBEBEB;
+    border-bottom: #5D1313 5px solid;
+}
+.form-bg{
+    background-color: #f7dbcc;
+    border-radius: 15px;
+    padding: 15px;
+}
+.form-group label{
+    font-weight: 600;
+}
+input:focus, textarea:focus{
+    outline: none;
+}
+.btn-dash{
+    background-color: #5D1313;
+    border: none;
+    color: #fff !important;
+    font-weight: 500;
+    border-radius: 10px;
+    padding: 13px 38px;
+}
+.heading{
+    font-size: 25px;
+    margin-bottom: 25px;
+    display: flex;
+    padding-left: 10px;
+}
+.tmt-div-view{
+    width: 100%;
+    border: #e5e5e5 1px solid;
+    padding: 10px;
+    margin: 8px 0;
+
+}
+.tmt-div-view strong{
+    margin-right: auto;
+    font-size: 22px;
 }

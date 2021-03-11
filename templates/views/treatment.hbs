@@ -36,27 +36,26 @@
 
       <section class="d-content">
           <div class="container">
+              {{#each treatment as |item|}}
               <div class="content-div mb-5">
                   <div class="row">
                     <div class="col-md-4 mb-4">
-                        <img src="./images/diabetes-1.png" alt="diabetes" class="img-fluid">
+                    <div  class="tile-images "style="background-image: url(./uploads/{{item.image1}});"></div>
                     </div>
                     <div class="col-md-4 mb-4">
-                        <img src="./images/diabetes-1.png" alt="diabetes" class="img-fluid">
+                        <div  class="tile-images "style="background-image: url(./uploads/{{item.image2}});"></div>
                     </div>
                     <div class="col-md-4 mb-4">
-                        <img src="./images/diabetes-1.png" alt="diabetes" class="img-fluid">
+                        <div  class="tile-images "style="background-image: url(./uploads/{{item.image3}});"></div>
                     </div>
                   </div>
                     <div class="row">
                       <div class="col-md-6">
                           <div>
-                              <strong class="content-heading">Diabetes</strong>
+                              <strong class="content-heading">{{item.name}}</strong>
                           </div>
                           <div>
-                                <p class="content-disc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
-                                dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
-                                book.</p>
+                                <p class="content-disc">{{item.description}}</p>
                           </div>
                       </div>
                       <div class="col-md-6">
@@ -64,50 +63,18 @@
                             <strong class="content-heading">Package</strong>
                         </div>
                         <div>
-                            <p class="content-disc">Loremipsum | 25 dyas</p>
+                            <p class="content-disc">{{item.pkgName}} | {{item.pkgDays}} days</p>
+                        </div>
+                        <div>
+                            <p class="text-white pkg-desc">{{item.pkgDescription}}</p>
+                        </div>
+                        <div>
+                            <p class="text-white pkg-note">{{item.pkgNote}}</p>
                         </div>
                     </div>
                   </div>
               </div>
-
-
-            <div class="content-div">
-                <div class="row">
-                    <div class="col-md-4 mb-4">
-                        <img src="./images/diabetes-1.png" alt="diabetes" class="img-fluid">
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <img src="./images/diabetes-1.png" alt="diabetes" class="img-fluid">
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <img src="./images/diabetes-1.png" alt="diabetes" class="img-fluid">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div>
-                            <strong class="content-heading">Diabetes</strong>
-                        </div>
-                        <div>
-                            <p class="content-disc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum has been the industry's standard
-                                dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-                                make a type specimen
-                                book.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div>
-                            <strong class="content-heading">Package</strong>
-                        </div>
-                        <div>
-                            <p class="content-disc">Loremipsum | 25 dyas</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
+              {{/each}}
 
           </div>
       </section>
