@@ -181,3 +181,12 @@ input:focus, textarea:focus{
     margin-right: auto;
     font-size: 22px;
 }
+.dash-heading{
+    color: #5D1313;
+}
+.img-bg{
+    height: 220px;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+}

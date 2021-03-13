@@ -34,34 +34,32 @@
 
     <section class="d-content">
         <div class="container">
+            {{#each medicines as |item|}}
             <div class="content-div mb-5">
                 <div class="row">
                     <div class="col-md-4 mb-4">
-                        <img src="./images/medicines.png" alt="diabetes" class="img-fluid">
+                    <div  class="tile-images "style="background-image: url(./uploads/{{item.image1}});"></div>
                     </div>
                     <div class="col-md-4 mb-4">
-                        <img src="./images/medicines.png" alt="diabetes" class="img-fluid">
+                        <div  class="tile-images "style="background-image: url(./uploads/{{item.image2}});"></div>
                     </div>
                     <div class="col-md-4 mb-4">
-                        <img src="./images/medicines.png" alt="diabetes" class="img-fluid">
+                        <div  class="tile-images "style="background-image: url(./uploads/{{item.image3}});"></div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div>
-                            <strong class="content-heading">Diabetes</strong>
+                            <strong class="content-heading">{{item.name}}</strong>
                         </div>
                         <div>
-                            <p class="content-disc">Lorem Ipsum is simply dummy text of the printing and typesetting
-                                industry. Lorem Ipsum has been the industry's standard
-                                dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                                scrambled it to make a type specimen
-                                book.</p>
+                            <p class="content-disc">{{item.description}}</p>
                         </div>
                     </div>
                     
                 </div>
             </div>
+            {{/each}}
 
 
 

@@ -4,6 +4,7 @@ const hbs = require('hbs')
 require('./db/mongoose')
 const dashBoardRouter = require('./routers/dashboard/dashboard')
 const router = require('./routers/router')
+const imageRouter = require('./routers/dashboard/imageChange')
 const notFount = require('./routers/404')
 const app = express()
 const bodyParser = require('body-parser')
@@ -32,6 +33,7 @@ app.use(session({
 
 app.use(dashBoardRouter)
 app.use(router)
+app.use(imageRouter)
 
 app.use(notFount) // 404 Not found
 

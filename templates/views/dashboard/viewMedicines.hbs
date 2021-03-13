@@ -20,11 +20,11 @@
                 {{>dashboard/header}}
                 <div class="col-md-12 mt-5">
                     <div class="row">
-                        <div class="heading"><strong>TREATMENT</strong></div>
+                        <div class="heading"><strong>MEDICINES</strong></div>
                     </div>
                    <div class="row">
-                       <a href="/view/treatment" class="nav-menu active">View</a>
-                       <a href="/create/treatment" class="nav-menu">Create New</a>
+                       <a href="/view/medicines" class="nav-menu active">View</a>
+                       <a href="/create/medicines" class="nav-menu">Create New</a>
                     </div>
                     <hr class="m-0">
                     <div class="row">
@@ -43,12 +43,12 @@
                                     </div>  
                                 </div>
                             {{/if}}
-                            {{#each treatment as |item|}}
+                            {{#each medicines as |item|}}
                             <div class="tmt-div-view d-flex">
                                 <strong>{{item.name}} <small> [{{item.index}}]</small></strong>
                                 {{!-- <button class="btn btn-primary mr-3 view-btn">View</button> --}}
-                                <a href="/edit/treatment/images/{{item.id}}" class="btn btn-info mr-3 edit-btn">Images</a>
-                                <a href="/edit/treatment/{{item.id}}" class="btn btn-warning mr-3 edit-btn">Edit</a>
+                                <a href="/edit/medicine/images/{{item.id}}" class="btn btn-info mr-3 edit-btn">Images</a>
+                                <a href="/edit/medicine/{{item.id}}" class="btn btn-warning mr-3 edit-btn">Edit</a>
                                 <a class="btn btn-danger dlt-btn"  onclick="passValue('{{item.id}}')" data-toggle="modal" data-target="#exampleModalCenter" >Delete</a>
                             </div>
                             {{/each}}
@@ -70,17 +70,17 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Delete Treatment</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Delete Medicine</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Are you sure? you want to delete this treatment
+        Are you sure? you want to delete this Medicine
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary pl-4 pr-4" data-dismiss="modal">Cancel</button>
-        <form action="/delete/treatment" method="post">
+        <form action="/delete/medicine" method="post">
             <input type="hidden" name="id" id="deleteId" readonly="true" value="">
             <button type="submit" class="btn btn-danger">Delete</button>
 	    </form>

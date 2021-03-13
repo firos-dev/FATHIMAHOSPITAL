@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#5D1313">
+    <title>Fathima | Admin</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/dashboard/style.css">
+    <link rel="stylesheet" href="/dashboard/mediaQuery.css">
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="col-md-12">
+        <div class="row">
+            {{>dashboard/sidebar}}
+            <div class="col-md-9 col-lg-9 col-xl-10" id="dash-body">
+                {{>dashboard/header}}
+                <div class="col-md-12 mt-5">
+                    <div class="row">
+                        <div class="heading"><strong>MEDICINES <small>({{img.name}})</small></strong></div>
+                    </div>
+                   <div class="row">
+                       <a href="/view/medicines" class="nav-menu">View</a>
+                       <a href="/create/medicines" class="nav-menu">Create New</a>
+                    </div>
+                    <hr class="m-0">
+                    <div class="row">
+                        <div class="col-md-7 mt-3">
+                            {{#if msgSuccess}}
+                                <div>
+                                    <div class="alert alert-success" role="alert">
+                                        <strong>Success! </strong>{{msgSuccess}}
+                                    </div>  
+                                </div>
+                            {{/if}}
+                            {{#if msgErr}}
+                                <div>
+                                    <div class="alert alert-danger" role="alert">
+                                        <strong>Error! </strong>{{msgErr}}
+                                    </div>  
+                                </div>
+                            {{/if}}
+                        </div>
+                    </div>
+                    
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="img-bg" style="background-image: url(/uploads/{{img.image1}});"></div>
+                                <form action="/edit/medicine/image1/{{img.id}}/{{img.name}}" method="post" enctype="multipart/form-data">
+                                    <div class="form-group mt-3">
+                                        <label for="exampleFormControlFile1">Edit first image</label>
+                                        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image1" required>
+                                    </div>
+                                     <button type="submit" class="btn btn-dash mb-2">Change</button>
+                                </form>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="img-bg" style="background-image: url(/uploads/{{img.image2}});"></div>
+                                <form action="/edit/medicine/image2/{{img.id}}/{{img.name}}" method="post" enctype="multipart/form-data">
+                                    <div class="form-group mt-3">
+                                        <label for="exampleFormControlFile2">Edit second image</label>
+                                        <input type="file" class="form-control-file" id="exampleFormControlFile2" name="image2" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-dash mb-2">Change</button>
+                                </form>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="img-bg" style="background-image: url(/uploads/{{img.image3}});"></div>
+                                <form action="/edit/medicine/image3/{{img.id}}/{{img.name}}" method="post" enctype="multipart/form-data">
+                                    <div class="form-group mt-3">
+                                        <label for="exampleFormControlFile3">Edit third image</label>
+                                        <input type="file" class="form-control-file" id="exampleFormControlFile3" name="image3" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-dash mb-2">Change</button>
+                                </form>
+                                
+                            </div>
+                        </div>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

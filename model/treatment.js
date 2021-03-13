@@ -47,6 +47,17 @@ const treatmentSchema = new mongoose.Schema({
     timestamps: true
 })
 
+treatmentSchema.post('save', function (error, doc, next) {
+    if (error.name === 'MongoError' && error.code === 11000) {
+        next(new Error('This index is already assigned!'))
+    } else {
+        next(error)
+    }
+})
+
+
+
+
 const Treatment = mongoose.model('Treatment', treatmentSchema)
 
 module.exports = Treatment

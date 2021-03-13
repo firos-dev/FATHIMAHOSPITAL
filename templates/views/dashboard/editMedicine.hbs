@@ -20,14 +20,14 @@
                 {{>dashboard/header}}
                 <div class="col-md-12 mt-5">
                     <div class="row">
-                        <div class="heading"><strong class="dash-heading">TREATMENT</strong></div>
+                        <div class="heading"><strong class="dash-heading">MEDICINES</strong></div>
                     </div>
                    <div class="row">
-                       <a href="/view/treatment" class="nav-menu">View</a>
-                       <a href="/create/treatment" class="nav-menu">Create New</a>
+                       <a href="/view/medicines" class="nav-menu">View</a>
+                       <a href="/create/medicines" class="nav-menu">Create New</a>
                     </div>
                     <hr class="m-0">
-                    <form class="mt-4" action="/edit/treatment/{{tmt.id}}" method="post">
+                    <form class="mt-4" action="/edit/medicine/{{med.id}}" method="post">
                         <div class="row">
                             {{#if msgSuccess}}
                                     <div class="col-md-12">
@@ -43,50 +43,26 @@
                                         </div>
                                     </div>
                                 {{/if}}
-                                {{#if tmt}}
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="exampleFormControlInput1">Name</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name of treatment" name="name" value="{{tmt.name}}" required>
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name of medicine" name="name" value="{{med.name}}" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">Description</label>
-                                    <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3" required>{{tmt.description}}</textarea>
+                                    <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3" required>{{med.description}}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlInput5">Index</label>
-                                    <input name="index" type="number" class="form-control" id="exampleFormControlInput5" placeholder="Index in numbers" value="{{tmt.index}}" required>
+                                    <input name="index" type="number" class="form-control" id="exampleFormControlInput5" placeholder="Index in numbers" value="{{med.index}}" required>
                                 </div>
 
                     
                     
                             </div>
-                            <div class="col-md-6">
-                                 <div class="form-bg">
-                                    <div class="form-group">
-                                        <label for="exampleFormControlInput6">Package Name</label>
-                                        <input type="text" class="form-control border-0" id="exampleFormControlInput6"
-                                            placeholder="Name of Package" name="pkgName"  value="{{tmt.pkgName}}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleFormControlInput7">Days</label>
-                                        <input type="number" class="form-control border-0" id="exampleFormControlInput7"
-                                            placeholder="Days in numbers" name="pkgDays"  value="{{tmt.pkgDays}}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleFormControlTextarea3">Description</label>
-                                        <textarea class="form-control border-0" id="exampleFormControlTextarea3" rows="3" name="pkgDescription">{{tmt.pkgDescription}}</textarea> 
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleFormControlTextarea4">Package note</label>
-                                        <textarea class="form-control border-0" id="exampleFormControlTextarea4" rows="3" name="pkgNote">{{tmt.pkgNote}}</textarea>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="col-md-12 mt-3 mb-4">
                                 <button type="submit" class="btn btn-dash">Submit</button>
                             </div>
-                            {{/if}}
                         </div>
                     </form>
                 </div>

@@ -36,18 +36,22 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
-                    <form>
+                    <form action="/new/enquiry" method="post">
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Mobile</label>
-                            <input type="number" class="form-control myinput" id="exampleInputPassword1">
+                            <label for="exampleInputPassword1">Name</label>
+                            <input type="text" class="form-control myinput" id="exampleInputPassword1" name="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control myinput" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <label for="exampleInputPassword2">Mobile</label>
+                            <input type="number" class="form-control myinput" id="exampleInputPassword2" name="mobile" required minlength="10">
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Message</label>
-                            <textarea class="form-control myinput" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <label for="exampleInputEmail3">Email address</label>
+                            <input type="email" class="form-control myinput" id="exampleInputEmail3" aria-describedby="emailHelp" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea4">Message</label>
+                            <textarea class="form-control myinput" id="exampleFormControlTextarea4" rows="3" name="message"></textarea>
                         </div>
                         <button type="submit" class="btn btn-footer">Send</button>
                     </form>
