@@ -8,10 +8,6 @@ const Medicene = require('../../model/medicines')
 const router = new express.Router()
 
 
-router.get('/test', async (req, res) => {
-    res.render('dashboard/treatment')
-})
-
 router.get('/dashboard/signin', (req, res) => {
     if (req.query.msg) {
         res.render('dashboard/dashboard', {
@@ -22,11 +18,11 @@ router.get('/dashboard/signin', (req, res) => {
     
 })
 
-router.get('/dashboard/home', (req, res) => {
+router.get('/dashboard/home', auth,  (req, res) => {
     res.render('dashboard/home')
 })
 
-router.get('/view/treatment', async(req, res) => {
+router.get('/view/treatment', auth, async(req, res) => {
     const treatment = await Treatment.find().sort({index : 1})
     res.render('dashboard/viewTreatment', {
         treatment: treatment,
@@ -34,7 +30,8 @@ router.get('/view/treatment', async(req, res) => {
         msgErr: req.query.msgErr
     })
 })
-router.get('/view/medicines', async(req, res) => {
+
+router.get('/view/medicines', auth, async(req, res) => {
     const medicines = await Medicene.find().sort({index : 1})
     res.render('dashboard/viewMedicines', {
         medicines: medicines,
@@ -44,19 +41,19 @@ router.get('/view/medicines', async(req, res) => {
 })
 
 
-router.get('/create/treatment', (req, res) => {
+router.get('/create/treatment', auth, (req, res) => {
     res.render('dashboard/createTreatment', {
         msgErr: req.query.msgErr
     })
 })
 
-router.get('/create/medicines', (req, res) => {
+router.get('/create/medicines', auth,  (req, res) => {
     res.render('dashboard/createMedicines', {
         msgErr: req.query.msgErr
     })
 })
 
-router.get('/edit/treatment/:id', async(req, res) => {
+router.get('/edit/treatment/:id', auth, async(req, res) => {
     if (req.params.id) {
         try {
             const treatment = await Treatment.findById(req.params.id)
@@ -74,7 +71,7 @@ router.get('/edit/treatment/:id', async(req, res) => {
     }
 })
 
-router.get('/edit/medicine/:id', async(req, res) => {
+router.get('/edit/medicine/:id', auth, async(req, res) => {
     if (req.params.id) {
         try {
             const medicine = await Medicene.findById(req.params.id)
@@ -93,7 +90,7 @@ router.get('/edit/medicine/:id', async(req, res) => {
 })
 
 
-router.get('/edit/treatment/images/:id', async (req, res) => {
+router.get('/edit/treatment/images/:id', auth, async (req, res) => {
     const images = await Treatment.findOne({_id : req.params.id}, { image1: 1, image2: 1, image3: 1, name: 1 })
     res.render('dashboard/treatmentImages', {
         img: images,
@@ -102,7 +99,7 @@ router.get('/edit/treatment/images/:id', async (req, res) => {
     })
 })
 
-router.get('/edit/medicine/images/:id', async (req, res) => {
+router.get('/edit/medicine/images/:id', auth, async (req, res) => {
     const images = await Medicene.findOne({_id : req.params.id}, { image1: 1, image2: 1, image3: 1, name: 1 })
     res.render('dashboard/medicineImages', {
         img: images,
@@ -113,7 +110,7 @@ router.get('/edit/medicine/images/:id', async (req, res) => {
 
 
 
-// POST ROUTES
+// POST ROUTES ######################################################
 
 
 router.post('/account/key', async (req, res) => {
@@ -128,7 +125,7 @@ router.post('/account/key', async (req, res) => {
     }
 })
 
-router.post('/dashboard/signin', async (req, res) => {
+router.post('/dashboard/signin', auth, async (req, res) => {
     try {
         const account = await Account.verifyUser(req.body.privateKey)
         req.session.loggedIn = account
@@ -139,6 +136,8 @@ router.post('/dashboard/signin', async (req, res) => {
     }
     
 })
+
+//Images uploading --------------------------------------------------
 
 const storage = multer.diskStorage({
     destination: 'public/uploads',
@@ -170,12 +169,15 @@ const tmtimg = multer({
         cb(undefined, true)
     }
 })
+
 const uploadImg = tmtimg.fields([
     { name: 'image1', maxCount: 1 },
     { name: 'image2', maxCount: 1 },
     { name: 'image3', maxCount: 1 }])
 
-router.post('/create/treatment', uploadImg, async (req, res) => {
+//Images uploading --------------------------------------------------
+
+router.post('/create/treatment', auth, uploadImg, async (req, res) => {
     const treatment = new Treatment({
         ...req.body,
         image1: req.files.image1[0].filename,
@@ -190,6 +192,8 @@ router.post('/create/treatment', uploadImg, async (req, res) => {
         res.redirect('/create/treatment?msgErr=' + err.message)
     }
 })
+
+//Images uploading --------------------------------------------------
 
 const medStorage = multer.diskStorage({
     destination: 'public/uploads',
@@ -221,12 +225,15 @@ const medimg = multer({
         cb(undefined, true)
     }
 })
+
 const uploadMedImg = medimg.fields([
     { name: 'image1', maxCount: 1 },
     { name: 'image2', maxCount: 1 },
     { name: 'image3', maxCount: 1 }])
 
-router.post('/create/medicines', uploadMedImg, async (req, res) => {
+//Images uploading --------------------------------------------------
+
+router.post('/create/medicines', auth, uploadMedImg, async (req, res) => {
     const medicene = new Medicene({
         ...req.body,
         image1: req.files.image1[0].filename,
@@ -242,7 +249,7 @@ router.post('/create/medicines', uploadMedImg, async (req, res) => {
     }
 })
 
-router.post('/edit/treatment/:id', async (req, res) => {
+router.post('/edit/treatment/:id', auth, async (req, res) => {
     const updates = Object.keys(req.body)
     const allowedUpdates = ['name', 'description', 'index', 'pkgName', 'pkgDays', 'pkgDescription', 'pkgNote']
     const isValidUpdate = updates.every((update) => allowedUpdates.includes(update))
@@ -261,7 +268,8 @@ router.post('/edit/treatment/:id', async (req, res) => {
     }
     
 })
-router.post('/edit/medicine/:id', async (req, res) => {
+
+router.post('/edit/medicine/:id', auth, async (req, res) => {
     const updates = Object.keys(req.body)
     const allowedUpdates = ['name', 'description', 'index']
     const isValidUpdate = updates.every((update) => allowedUpdates.includes(update))
@@ -281,7 +289,7 @@ router.post('/edit/medicine/:id', async (req, res) => {
     
 })
 
-router.post('/delete/treatment', async (req, res) => {  
+router.post('/delete/treatment', auth, async (req, res) => {  
     try {
         const tmt = await Treatment.findOneAndDelete({ _id: req.body.id })
         if (!tmt) {
@@ -292,7 +300,8 @@ router.post('/delete/treatment', async (req, res) => {
        res.redirect('/view/treatment?msgErr='+e.message)
     }
 })
-router.post('/delete/medicine', async (req, res) => {  
+
+router.post('/delete/medicine', auth, async (req, res) => {  
     try {
         const med = await Medicene.findOneAndDelete({ _id: req.body.id })
         if (!med) {

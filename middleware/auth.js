@@ -8,7 +8,7 @@ const auth = async (req, res, next) => {
         }
         next()
     } catch (e) {
-        res.status(401).redirect('/dashboard/signin?msg=Please Authenticate!')
+        res.status(401).redirect('/dashboard/signin?msg=Please provide private key!')
     }
     
 }
