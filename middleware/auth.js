@@ -1,5 +1,3 @@
-
-
 const auth = async (req, res, next) => {
     try {
         if (!req.session.loggedIn) {
@@ -8,7 +6,7 @@ const auth = async (req, res, next) => {
         }
         next()
     } catch (e) {
-        res.status(401).redirect('/dashboard/signin?msg=Please provide private key!')
+        res.status(401).redirect('/dashboard/signin?msg=Please authenticate!')
     }
     
 }

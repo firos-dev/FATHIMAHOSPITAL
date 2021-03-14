@@ -1,7 +1,7 @@
 const express = require('express')
 const Treatment = require('../model/treatment')
 const Medicine = require('../model/medicines')
-const Enquery = require('../model/enquery')
+const Contact = require('../model/contact')
 
 const router = new express.Router()
 
@@ -18,7 +18,8 @@ router.get('/treatment', async(req, res) => {
 router.get('/medicines', async(req, res) => {
     const medicines = await Medicine.find().sort({index : 1})
     res.render('medicines', {
-        medicines: medicines
+        medicines: medicines,
+        msgSuccess: req.query.msgSuccess
     })
 })
 router.get('/contact', (req, res) => {
@@ -29,13 +30,13 @@ router.get('/contact', (req, res) => {
 //POST Router
 
 router.post('/new/enquiry', async (req, res) => {
-    const enquery = new Enquery({
+    const contact = new Contact({
         ...req.body
     })
 
     try {
-        enquery.save()
-        res.redirect('/contact')
+        contact.save()
+        res.redirect('/contact?msgSuccess=Message send!')
     } catch (e) {
         console.log(e);
         res.redirect('/contact')

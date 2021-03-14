@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const enquirySchema = new mongoose.Schema({
+const contactSchema = new mongoose.Schema({
     name: {
         type: String,
         trim: true,
@@ -20,6 +20,6 @@ const enquirySchema = new mongoose.Schema({
     }
 })
 
-const Enquery = mongoose.model('Enquery', enquirySchema)
+const Contact = mongoose.model('Contact', contactSchema)
 
-module.exports = Enquery
+module.exports = Contact

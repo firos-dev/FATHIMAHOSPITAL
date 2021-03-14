@@ -2,9 +2,10 @@ const express = require('express')
 const multer = require('multer')
 const Account = require('../../model/account')
 const Treatment = require('../../model/treatment')
+const Medicene = require('../../model/medicines')
+const Contact = require('../../model/contact')
 const auth = require('../../middleware/auth')
 const { update } = require('../../model/account')
-const Medicene = require('../../model/medicines')
 const router = new express.Router()
 
 
@@ -108,6 +109,12 @@ router.get('/edit/medicine/images/:id', auth, async (req, res) => {
     })
 })
 
+router.get('/view/contacts/', async (req, res) => {
+    const contacts = await Contact.find()
+    res.render('dashboard/viewContact', {
+        contacts
+    })
+})
 
 
 // POST ROUTES ######################################################
@@ -125,14 +132,14 @@ router.post('/account/key', async (req, res) => {
     }
 })
 
-router.post('/dashboard/signin', auth, async (req, res) => {
+router.post('/dashboard/signin', async (req, res) => {
     try {
         const account = await Account.verifyUser(req.body.privateKey)
         req.session.loggedIn = account
         res.status(200).redirect('/dashboard/home')
     } catch (e) {
         console.log(e);
-        res.status(400).redirect(`/dashboard/signin?msg=${e}`)
+        res.status(400).redirect(`/dashboard/signin?msg=${e.message}`)
     }
     
 })
@@ -313,5 +320,9 @@ router.post('/delete/medicine', auth, async (req, res) => {
     }
 })
 
+router.get('/dashboard/logout', auth, async (req, res) => {
+    req.session.destroy()
+    res.redirect('/dashboard/signin')
+})
 
 module.exports = router
