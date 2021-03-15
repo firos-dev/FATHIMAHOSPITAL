@@ -136,7 +136,7 @@ router.post('/dashboard/signin', async (req, res) => {
     try {
         const account = await Account.verifyUser(req.body.privateKey)
         req.session.loggedIn = account
-        res.status(200).redirect('/dashboard/home')
+        res.status(200).redirect('/view/treatment')
     } catch (e) {
         console.log(e);
         res.status(400).redirect(`/dashboard/signin?msg=${e.message}`)

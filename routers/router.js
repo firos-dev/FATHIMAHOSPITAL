@@ -23,9 +23,14 @@ router.get('/medicines', async(req, res) => {
     })
 })
 router.get('/contact', (req, res) => {
-    res.render('contact')
+    res.render('contact', {
+        msgSuccess: req.query.msgSuccess
+    })
 })
 
+router.get('/branches', async (req, res) => {
+    res.render('branches')
+})
 
 //POST Router
 
